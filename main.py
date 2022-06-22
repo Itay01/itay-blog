@@ -14,7 +14,7 @@ from flask_mail import Mail, Message
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ['APP_KEY']
+app.config['SECRET_KEY'] = os.environ.get('APP_KEY')
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
@@ -22,8 +22,8 @@ Bootstrap(app)
 mail = Mail(app)
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
 app.config["MAIL_PORT"] = 465
-app.config["MAIL_USERNAME"] = os.environ['EMAIL']
-app.config["MAIL_PASSWORD"] = os.environ['EMAIL_PASSWORD']
+app.config["MAIL_USERNAME"] = os.environ.get('EMAIL')
+app.config["MAIL_PASSWORD"] = os.environ.get('EMAIL_PASSWORD')
 app.config["MAIL_USE_TLS"] = False
 app.config["MAIL_USE_SSL"] = True
 mail = Mail(app)
